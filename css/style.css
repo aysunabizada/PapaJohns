@@ -50,7 +50,7 @@ body{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robo
 }
 .promokod p,.promokod span{display: none;}
 .promokod span{color: #0F9675;}
-.promokod button,.card button, .content button{
+.promokod button,.card button, .content button,.btns button{
     background: #0F9675;
     color: #fff;
     border-radius: 3px;
@@ -165,7 +165,7 @@ footer{background: #AC0E13;}
 .down{
     display: none;
     position: absolute;
-    top: 90%;
+    top: 80%;
     width: 150px;
     z-index: 999999;
     background: #fff;
@@ -176,8 +176,8 @@ footer{background: #AC0E13;}
 #drp:hover .down{display: block;}
 #drp .lang:hover{background-color: #F1F1F1;}
 .sebet a{font-size: 1.2em; color: #000;}
-.sebetqiymet{font-size: .8em;}
-.sebetsay{
+.sebet .sebetqiymet{font-size: .8em;}
+.sebet .sebetsay{
     position: absolute;
     background-color: #AC0E13;
     color: #fff;
@@ -192,6 +192,37 @@ footer{background: #AC0E13;}
     margin: 20px;
     color: #AC0E13;
 }
+.no-scroll {overflow: hidden;}
+.btns button{width: 210px;}
+.background{
+    display: none;
+    position: absolute;
+    z-index: 999999;
+    background: #000000b9;
+    width: 100%;
+    height: 100%;
+}
+#basket{
+    position: absolute;
+    display: none;
+    z-index: 999999999999;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    box-shadow: #959da533 0px 18px 24px;
+}
+#basket i{
+    cursor: pointer;
+    font-size: 1.6em;
+    color: #AC0E13;
+    float: right;
+}
+#basket h2{font-size: 1.8em;}
+#basket p{padding: 10px 0;}
 
 @media only screen and (min-width: 768px) {
     .df{display: flex; align-items: center; gap: 2vw;}
@@ -253,6 +284,12 @@ footer{background: #AC0E13;}
     }
     .pizzaCategory ul{padding: 0}
     .promokod p,.promokod span{display: block; font-size: 1.5em;}
+    #basket{
+        width: 540px;
+        height: initial;
+        border-radius: 10px;
+    }
+    .btns{justify-content: space-evenly;}
     #slide1{background: url('../img/sl1desk.png')center/contain no-repeat;}
     #slide2{background: url('../img/sl2desk.png')center/contain no-repeat;}
     #slide3{background: url('../img/sl3desk.png')center/contain no-repeat;}

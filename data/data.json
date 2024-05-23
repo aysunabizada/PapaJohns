@@ -259,9 +259,9 @@
 			"id": 33,
 			"img": "https://www.papajohns.az/uploads/images/pasta_mamas_pasta.jpg",
 			"category": "Pasta",
-			"name": "Mama Pasta",
-			"composition": "Spagetti, Qril Toyuğu, Göbələk, Ranç Sousu, Mozzarella",
-			"price": 7
+			"name": "Papa Pasta",
+			"composition": "Spagetti, Qril, Göbələk, Barbeku Sousu, Mozzarella",
+			"price": 7.5
 		},
 		{
 			"id": 34,
@@ -441,26 +441,10 @@
 		},
 		{
 			"id": 56,
-			"img": "https://www.papajohns.az/uploads/images/pasta_mamas_pasta.jpg",
+			"img": "https://www.papajohns.az/uploads/images/pasta_super_papa.jpg",
 			"category": "Pasta",
-			"name": "Mama Pasta",
-			"composition": "Spagetti, Qril Toyuğu, Göbələk, Ranç Sousu, Mozzarella",
-			"price": 9	
-		},
-		{
-			"id": 57,
-			"img": "https://www.papajohns.az/uploads/images/pasta_mamas_pasta.jpg",
-			"category": "Pasta",
-			"name": "Mama Pasta",
-			"composition": "Spagetti, Qril Toyuğu, Göbələk, Ranç Sousu, Mozzarella",
-			"price": 7
-		},
-		{
-			"id": 58,
-			"img": "https://www.papajohns.az/uploads/images/pasta_mamas_pasta.jpg",
-			"category": "Pasta",
-			"name": "Mama Pasta",
-			"composition": "Spagetti, Qril Toyuğu, Göbələk, Ranç Sousu, Mozzarella",
-			"price": 8
+			"name": "Super Mama",
+			"composition": "Spagetti, Pepperoni, Toyuq Qril, Bibər, Göbələk, Pizza Sous, Mozzarella ",
+			"price": 9
 		}
 	]

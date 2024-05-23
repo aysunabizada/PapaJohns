@@ -1,6 +1,8 @@
 const main = document.querySelector("main");
 const zehrimar = document.querySelector("#zehrimar");
+const basket = document.querySelector("#basket");
 const cards = document.querySelector(".cards");
+const background = document.querySelector(".background");
 const bonus = document.querySelector(".bonus");
 const message = document.querySelector(".message");
 const prokod = document.querySelector("#prokod");
@@ -27,24 +29,26 @@ function getKampaniya() {
                             </div>`
     })
 }
+
+//data fetchhh
 let data
 async function dataGet() {
     const res = await fetch('data/data.json')
     data = await res.json()
-    // console.log(data);
 }
-async function show(arg, a) {
-    // a.style.color = '#cfcaca';
+
+//Kartlarim
+async function show(arg) {
     await dataGet();
     pizzaCategory.style.display = (arg === 'Pizzalar') ? 'block' : 'none';
     bonus.style.display = (arg === 'Bonus') ? 'block' : 'none';
     zehrimar.style.display = 'none'
     const filteredCard = data.filter(item => item.category === arg).map(item => {
         return `<div class="card">
-                    <a href="#"><img src="${item.img}" alt="${item.name}"></a>
+                    <a href="#" onclick="bunuSec(this)"><img src="${item.img}" alt="${item.name}"></a>
                     <div class="sum">
                         <h3>${item.name}</h3>
-                        <button onclick="bunuSec()">BUNU SEC</button>
+                        <button onclick="bunuSec(this)">BUNU SEC</button>
                     </div>
                     <p>${item.composition}</p>
                     <span>${item.price} ₼</span>
@@ -53,40 +57,34 @@ async function show(arg, a) {
     cards.innerHTML = filteredCard
 }
 
+
+//promokod tetbiq edir
 prokod.value == 'aysu20'
-// function getPromokod() {
-//     if(prokod.value == 'aysu20'){
-//         data.price - ((data.price * 20) / 100)
-//         message.innerHTML = `<h2>'${prokod.value}' promo kodu tətbiq edildi!</h2>`
-//     } else{
-//         message.innerHTML = `<h2>'${prokod.value}' promo kodu mövcud deyil!</h2>`
-//     }
-// }
-
-function applyDiscountToData(discount) {
-    return data.map(item => ({
-        ...item,
-        discountedPrice: item.price - ((item.price * discount) / 100)
-    }));
-}
-
 function getPromokod() {
-    if(prokod.value === 'aysu20') {
-        const discountedData = applyDiscountToData(20);
-        message.innerHTML = `<h2>'${prokod.value}' promo kodu tətbiq edildi!</h2>`;
-        const filteredCard = discountedData.map(item => {
+    if (prokod.value === 'aysu20') {
+        message.innerHTML = `<h2>'${prokod.value}' promo kodu tətbiq edildi!</h2>`
+        const filteredCard = data.map(item => {
+            const discountedPrice = item.price - ((item.price * 20) / 100)
             return `<div class="card">
-                        <a href="#"><img src="${item.img}" alt="${item.name}"></a>
+                        <a href="#" onclick="bunuSec(this)"><img src="${item.img}" alt="${item.name}"></a>
                         <div class="sum">
                             <h3>${item.name}</h3>
-                            <button onclick="bunuSec()">BUNU SEC</button>
+                            <button onclick="bunuSec(this)">BUNU SEC</button>
                         </div>
                         <p>${item.composition}</p>
-                        <span><del>${item.price} ₼</del> ${item.discountedPrice} ₼</span>
-                    </div>`;
-        }).join('');
-        cards.innerHTML = filteredCard;
+                        <span><del>${item.price} ₼</del> ${discountedPrice} ₼</span>
+                    </div>`
+        }).join('')
+        cards.innerHTML = filteredCard
     } else {
-        message.innerHTML = `<h2>'${prokod.value}' promo kodu mövcud deyil!</h2>`;
+        message.innerHTML = `<h2>'${prokod.value}' promo kodu mövcud deyil!</h2>`
     }
+}
+
+let flag = true;
+function goBasket() {
+    background.style.display = flag ? 'block' : 'none';
+    basket.style.display = flag ? 'block' : 'none';
+    document.body.classList.toggle('no-scroll', flag);
+    flag = !flag;
 }
