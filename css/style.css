@@ -50,7 +50,7 @@ body{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Robo
 }
 .promokod p,.promokod span{display: none;}
 .promokod span{color: #0F9675;}
-.promokod button,.card button, .content button,.btns button{
+.promokod button,.card button, .content button,.btns button,.bunusec button{
     background: #0F9675;
     color: #fff;
     border-radius: 3px;
@@ -194,7 +194,7 @@ footer{background: #AC0E13;}
 }
 .no-scroll {overflow: hidden;}
 .btns button{width: 210px;}
-.background{
+.background, .background2{
     display: none;
     position: absolute;
     z-index: 999999;
@@ -215,7 +215,7 @@ footer{background: #AC0E13;}
     padding: 20px;
     box-shadow: #959da533 0px 18px 24px;
 }
-#basket i{
+#basket i, .bunusec i{
     cursor: pointer;
     font-size: 1.6em;
     color: #AC0E13;
@@ -223,6 +223,37 @@ footer{background: #AC0E13;}
 }
 #basket h2{font-size: 1.8em;}
 #basket p{padding: 10px 0;}
+
+.bunusec{
+    position: absolute;
+    z-index: 999999999999;
+    display: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    margin: 20px;
+    padding: 20px;
+    width: 320px;
+    margin: auto;
+    box-shadow: #959da533 0px 18px 24px;
+    background: #fff;
+    border-radius: 10px;
+}
+.bunusec img{width: 100%; margin: 10px 0;}
+.btnSec button,.btnSec span{padding: 5px 10px;}
+.btnSec button:first-child{background: #a1a1a1;}
+.btnSec span{ font-weight: 700;}
+.btn-group{
+    display: flex; 
+    justify-content: space-between; 
+    padding: 10px 0;
+    align-items: center;
+}
+
+
+
+
+
 
 @media only screen and (min-width: 768px) {
     .df{display: flex; align-items: center; gap: 2vw;}
@@ -242,6 +273,7 @@ footer{background: #AC0E13;}
         align-items: center;
         gap: 1.2vw;
     }
+    .bunusec{max-width: 320px}
     .card{width: 19.8%;margin: 0;}
     .lang{
         display: flex;

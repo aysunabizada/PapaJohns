@@ -3,8 +3,10 @@ const zehrimar = document.querySelector("#zehrimar");
 const basket = document.querySelector("#basket");
 const cards = document.querySelector(".cards");
 const background = document.querySelector(".background");
+const background2 = document.querySelector(".background2");
 const bonus = document.querySelector(".bonus");
 const message = document.querySelector(".message");
+const bunusec = document.querySelector(".bunusec");
 const prokod = document.querySelector("#prokod");
 const pizzaCategory = document.querySelector(".pizzaCategory");
 
@@ -45,10 +47,10 @@ async function show(arg) {
     zehrimar.style.display = 'none'
     const filteredCard = data.filter(item => item.category === arg).map(item => {
         return `<div class="card">
-                    <a href="#" onclick="bunuSec(this)"><img src="${item.img}" alt="${item.name}"></a>
+                    <a href="#" onclick="bunuSec(${item.id})"><img src="${item.img}" alt="${item.name}"></a>
                     <div class="sum">
                         <h3>${item.name}</h3>
-                        <button onclick="bunuSec(this)">BUNU SEC</button>
+                        <button onclick="bunuSec(${item.id})">BUNU SEC</button>
                     </div>
                     <p>${item.composition}</p>
                     <span>${item.price} ₼</span>
@@ -66,10 +68,10 @@ function getPromokod() {
         const filteredCard = data.map(item => {
             const discountedPrice = item.price - ((item.price * 20) / 100)
             return `<div class="card">
-                        <a href="#" onclick="bunuSec(this)"><img src="${item.img}" alt="${item.name}"></a>
+                        <a href="#" onclick="bunuSec(${item.id})"><img src="${item.img}" alt="${item.name}"></a>
                         <div class="sum">
                             <h3>${item.name}</h3>
-                            <button onclick="bunuSec(this)">BUNU SEC</button>
+                            <button onclick="bunuSec(${item.id})">BUNU SEC</button>
                         </div>
                         <p>${item.composition}</p>
                         <span><del>${item.price} ₼</del> ${discountedPrice} ₼</span>
@@ -85,6 +87,35 @@ let flag = true;
 function goBasket() {
     background.style.display = flag ? 'block' : 'none';
     basket.style.display = flag ? 'block' : 'none';
+    document.body.classList.toggle('no-scroll', flag);
+    flag = !flag;
+}
+
+function bunuSec(id) {
+    background2.style.display = flag ? 'block' : 'none';
+    bunusec.style.display = flag ? 'block' : 'none';
+    const item = data.find(item => item.id === id);
+    if (!item) return;
+    bunusec.innerHTML = `
+            <i class="fa-solid fa-circle-xmark" onclick="bunuSec()"></i><br>
+            <img src="${item.img}" alt="">
+            <h2>${item.name}</h2>
+            <div class="btn-group">
+                <div class="btnSec">
+                    <button onclick="azalt()">-</button>
+                    <span id="say">1</span>
+                    <button onclick="artir()">+</button>
+                </div>
+                <h2>${item.price} ₼</h2>
+            </div>
+            <div class="df btn-group">
+                <div class="sebet txtcenter">
+                    <span class="sebetsay">0</span>
+                    <a href="#" onclick="goBasket()" class="fa-solid fa-basket-shopping"></a>
+                    <p class="sebetqiymet">0 ₼</p>
+                </div>
+                <button>Səbətə at</button>
+            </div>`
     document.body.classList.toggle('no-scroll', flag);
     flag = !flag;
 }
