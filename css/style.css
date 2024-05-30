@@ -136,17 +136,12 @@ footer{background: #AC0E13;}
 .card img{
     width: 100%;
     object-fit: cover;
-    /* min-width: 100%; */
-    /* min-height: 250px; */
 }
 .card span{
     color: #AC0E13;
     font-weight: 700;
     font-size: 1.2em;
 }
-/* .activate{
-    color: #cfcaca;
-} */
 .bonus{display: none; background: url('../img/bgbonus.png')center/cover no-repeat;}
 .bonus .content img{max-width: 100%;}
 .bonus .content p{
@@ -160,7 +155,7 @@ footer{background: #AC0E13;}
     max-width: 580px;
     text-align: center;
 }
-.bal{cursor: pointer;}
+.bal,.nav-bottom ul li a{cursor: pointer;}
 .ntd-right,.sebet{position: relative;}
 .down{
     display: none;
@@ -249,7 +244,21 @@ footer{background: #AC0E13;}
     padding: 10px 0;
     align-items: center;
 }
-
+.link{position: relative;}
+.link::before{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: all .5s ease-in-out;
+}
+.link::before{
+    bottom: 0;
+    left: 0;
+    transform-origin: left;
+}
+.link:hover::before{width: 100%;}
 
 
 
@@ -290,7 +299,7 @@ footer{background: #AC0E13;}
         justify-content: center;
         font-size: 1.2em;
     }
-    .nav-bottom ul li a:hover, .ntd-left a:hover,.desk-f a:hover{color: #cfcaca; cursor: pointer;}
+    .ntd-left a:hover,.desk-f a:hover{color: #cfcaca; cursor: pointer;}
     .pizzaCategory a:hover{color: #AC0E13; cursor: pointer;}
     .bal,#logmob{display: initial;}
     .nb-list{

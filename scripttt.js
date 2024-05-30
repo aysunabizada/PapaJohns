@@ -114,8 +114,19 @@ function bunuSec(id) {
                     <a href="#" onclick="goBasket()" class="fa-solid fa-basket-shopping"></a>
                     <p class="sebetqiymet">0 ₼</p>
                 </div>
-                <button>Səbətə at</button>
+                <button onclick="sebeteAt(${item.id})">Səbətə at</button>
             </div>`
     document.body.classList.toggle('no-scroll', flag);
     flag = !flag;
 }
+
+const yemekler = document.querySelector(".yemekler");
+const sebetdekiYemek = [];
+
+
+function sebeteAt(id) {
+    const index = data.findIndex(item => id == item.id);
+    sebetdekiYemek.push(index)
+}
+console.log(sebetdekiYemek);
+sebeteAt()
